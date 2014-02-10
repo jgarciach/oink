@@ -6,6 +6,7 @@ class CreateTransactions < ActiveRecord::Migration
       t.string :category
       t.decimal :amount
       t.string :notes
+      t.belongs_to :account
 
       t.timestamps
     end
