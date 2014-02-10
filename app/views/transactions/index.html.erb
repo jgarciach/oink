@@ -6,7 +6,7 @@
     <th>Description</th>
     <th>Category</th>
     <th>Amount</th>
-    <th>Notes</th>
+    <th>Balance</th>
     <th></th>
     <th></th>
     <th></th>
@@ -17,8 +17,8 @@
     <td><%= transaction.date %></td>
     <td><%= transaction.description %></td>
     <td><%= transaction.category %></td>
-    <td><%= transaction.amount %></td>
-    <td><%= transaction.notes %></td>
+    <td><%= transaction.amount_in('$') %></td>
+    <td><%= transaction.balance_in('$') %></td>
     <td><%= link_to 'Details', transaction %></td>
     <td><%= link_to 'Edit', edit_transaction_path(transaction) %></td>
     <td><%= link_to 'Delete', transaction, method: :delete, data: { confirm: 'Are you sure?' } %></td>

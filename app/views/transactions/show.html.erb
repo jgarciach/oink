@@ -6,6 +6,11 @@
 </p>
 
 <p>
+  <b>Account #:</b>
+  <%= @transaction.account_id %>
+</p>
+
+<p>
   <b>Description:</b>
   <%= @transaction.description %>
 </p>
@@ -17,7 +22,7 @@
 
 <p>
   <b>Amount:</b>
-  <%= @transaction.amount %>
+  <%= @transaction.amount_in('$') %>
 </p>
 
 <p>
