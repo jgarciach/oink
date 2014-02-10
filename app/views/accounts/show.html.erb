@@ -1,10 +1,32 @@
 <p id="notice"><%= notice %></p>
+<h1>Current Balance: <%= @account.balance_in('$') %></h1>
+<h2>Account #<%= @account.id %></h2>
+<%= link_to 'Edit', edit_account_path(@account) %>
 
-<p>
-  <b>Balance:</b>
-  <%= @account.balance %>
-</p>
+<%= link_to 'New Transaction', new_transaction_path %>
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Description</th>
+    <th>Category</th>
+    <th>Amount</th>
+    <th>Notes</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
 
+<% @account.transactions.each do |transaction| %>
+  <tr>
+    <td><%= transaction.date %></td>
+    <td><%= transaction.description %></td>
+    <td><%= transaction.category %></td>
+    <td><%= transaction.amount %></td>
+    <td><%= transaction.notes %></td>
+    <td><%= link_to 'Details', transaction %></td>
+    <td><%= link_to 'Edit', edit_transaction_path(transaction) %></td>
+    <td><%= link_to 'Delete', transaction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
 
-<%= link_to 'Edit', edit_account_path(@account) %> |
-<%= link_to 'Back', accounts_path %>
