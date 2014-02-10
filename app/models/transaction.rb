@@ -29,8 +29,12 @@ class Transaction < ActiveRecord::Base
   end
 
   def update_balance(amount)
-    self.account.balance += amount
-    self.account.save
+    if self.try(:account)
+      self.account.balance += amount
+      self.account.save
+    else
+      false
+    end
   end
 
 end
